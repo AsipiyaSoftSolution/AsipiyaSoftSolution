@@ -1,0 +1,248 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  background-color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  overflow: hidden;
+}
+
+/* Add the animated underline on hover */
+.nav-item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Set your preferred underline thickness */
+  background-color: #fdbb4d; /* Set your preferred underline color */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out; /* Adjust the transition duration and timing function as needed */
+}
+
+.nav-item:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button-talk {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in;
+}
+.button-talk:hover {
+  background-color: black;
+  color: white;
+}
+
+.cat-btn {
+  background-color: transparent;
+  color: #2e02494d;
+  transition: background-color 0.1s ease-in;
+  border-color: #2e02494d;
+}
+.cat-btn:hover {
+  background-color: #fdbb4d;
+  color: black;
+  border-color: #fdbb4d;
+}
+
+.page-section {
+  @apply w-full md:pl-[60px] md:pr-[60px] pr-[20px] pl-[20px] overflow-hidden;
+}
+.hero-button {
+  background-color: #fdbb4d;
+  transition: background-color 0.3s ease-in;
+}
+.contact-button:hover {
+  background-color: #fdbb4d;
+  color: white;
+}
+.contact-button {
+  background-color: #000000;
+  transition: background-color 0.3s ease-in;
+}
+.hero-button:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.b-shadow {
+  /* box-shadow: 4px 4px 50px 10px #00000026; */
+}
+
+.hiddenDivsWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out; /* Adjust the duration and easing as needed */
+}
+
+.hover-title:hover .hiddenDivsWrapper {
+  width: 100%;
+}
+
+.partner-sec {
+  background: linear-gradient(
+    to right,
+    rgba(249, 246, 242, 1),
+    rgba(255, 245, 225, 0.4063),
+    rgba(255, 242, 217, 1)
+  );
+}
+
+.contact-input {
+  border: none;
+  border-bottom: 3px solid #2e02494d; /* Set the color of the bottom border */
+  outline: none;
+}
+.contact-input:focus {
+  border-bottom: 3px solid #000; /* Set the color of the bottom border */
+}
+
+.contact-input::placeholder {
+  color: #2e02494d; /* Set the default placeholder color */
+}
+
+.contact-input:focus::placeholder {
+  color: #000000; /* Change the color to your desired focus placeholder color */
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.mySwiper .swiper-wrapper {
+  @apply flex items-center;
+}
+
+.mySwiper .swiper-wrapper {
+  padding-bottom: 30px;
+  padding-top: 25px;
+}
+
+.mySwiper .swiper-pagination-bullet {
+  @apply bg-[#00000014] w-[55px] h-[3px] rounded-none;
+}
+.mySwiper .swiper-pagination-bullet-active {
+  @apply bg-white;
+}
+
+.scroll-to-top-button {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.scroll-to-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* PageLoader.css */
+
+.page-loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255);
+ 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.page-loader.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+@media only screen and (max-width: 600px) {
+  .page-loader {
+    background: rgba(255, 255, 255, 0.8); /* Adjust the background opacity for better visibility */
+  }
+
+  .load {
+    width: 80%; /* Adjust the width of the loader on smaller screens */
+  }
+}
+
+
+@keyframes pulse-circle {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+
+.fade-up-enter-active {
+  transition: opacity 0.5s, transform 0.8s ;
+}
+
+.fade-up-enter-active-large {
+  transition: opacity 0.5s, transform 0.8s ;
+}
+
+.fade-up-enter-from {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.fade-up-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* .open-header
+{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100vh;
+  padding: 20px;
+  transition: width 0.4s ease-in;
+}
+.close-header
+{
+  
+  transition: width 0.4s ease-out;
+  width: 0%;
+} */
